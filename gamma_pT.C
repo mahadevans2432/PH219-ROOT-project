@@ -5,7 +5,7 @@ double gamma_pT_calc(int fla)
 	if (fla==1){tree = (TTree*)f->Get("pytree020");}
 	else if (fla==2){tree = (TTree*)f->Get("pytree2040");}
 	else if (fla==3){tree = (TTree*)f->Get("pytree4060");}
-	else if (fla==3){tree = (TTree*)f->Get("pytree6080");}
+	else if (fla==4){tree = (TTree*)f->Get("pytree6080");}
 	else {tree = (TTree*)f->Get("pytree80100");}
 
 	
