@@ -1,3 +1,4 @@
+
 double Svariance_calc(int fla)
 {
 	TFile *f=new TFile("13TeV_CR0_RHoff.root");
@@ -72,4 +73,7 @@ void Svariance(){
     gr->GetYaxis()->SetTitle("standard deviation/mean");
     // gr->Draw("AP");
     gr->Draw("ALP");
+	auto legend = new TLegend(0.1,0.7,0.48,0.9);
+	legend->AddEntry(gr,"Graph of two particle correlator","P");
+	legend->Draw();
 }
