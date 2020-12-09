@@ -1,3 +1,4 @@
+
 double gamma_pT_calc(int fla)
 {
 	TFile *f=new TFile("13TeV_CR0_RHoff.root");
@@ -77,4 +78,7 @@ void gamma_pT(){
     gr->GetXaxis()->SetTitle("Multiplicity");
     gr->GetYaxis()->SetTitle("gamma_pT");
     gr->Draw("AP");
+	auto legend = new TLegend(0.1,0.7,0.48,0.9);
+	legend->AddEntry(gr,"Graph of standardized skewness","P");
+	legend->Draw();
 }
