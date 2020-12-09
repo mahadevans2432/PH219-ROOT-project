@@ -2,7 +2,7 @@
 void plot_pT()
 {
 	TFile *f=new TFile("13TeV_CR0_RHoff.root");		
-	TTree *tree = (TTree*)f->Get("pytree80100");
+	TTree *tree = (TTree*)f->Get("pytree020");
 	Long64_t nentries = (Long64_t)tree->GetEntries();
 	 
 	Long64_t maxTrack=100000;
@@ -24,10 +24,19 @@ void plot_pT()
 
 		for(Int_t j=0; j<ntrack; j++){
 			hpt->Fill(pT[j]);
+			hpt->SetLineColor(kBlue);
 		}
 		
 	}
+	//hpt->SetDrawOption("G");
+    	hpt->GetXaxis()->SetTitle("Transverse Momentum");
+    	hpt->GetYaxis()->SetTitle("Counts");
 	hpt->Draw();
 	hpt->Fit("expo");
+	hpt->SetFillColor(kGreen);
+	auto legend = new TLegend(0.8,0.7,0.48,0.6);
+   	legend->AddEntry(hpt,"pT","f");
+   	legend->AddEntry(gaus,"Fit","l");
+   	legend->Draw();
 	
 }
