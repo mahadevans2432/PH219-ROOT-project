@@ -59,12 +59,17 @@ void Svariance(){
 	Double_t x[5];
 	for(int i=1; i<=5; i++){
 		values[i-1] = Svariance_calc(i);
-		x[i-1] = 20*i;
+		x[i-1] = 20*i-10;
 	}
 	
 	TGraph *gr = new TGraph(5,x,values);
-	gr->SetTitle("Standardized Variance");
+	gr->SetTitle("Two particle correlator");
+	gr->SetMarkerColor(4);
+	gr->SetLineStyle(4);
+    gr->SetMarkerSize(1.5);
+    gr->SetMarkerStyle(21);
     gr->GetXaxis()->SetTitle("Multiplicity");
-    gr->GetYaxis()->SetTitle("variance/mean");
-    gr->Draw();
+    gr->GetYaxis()->SetTitle("standard deviation/mean");
+    // gr->Draw("AP");
+    gr->Draw("ALP");
 }
